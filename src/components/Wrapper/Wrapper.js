@@ -9,7 +9,8 @@ class Wrapper extends React.Component {
         chosenEmployees: [],
         score: 0,
         topScore: 0,
-        text: "Click an image to begin!"
+        text: "Click an image to begin!",
+        lose: false
     }
 
     //shuffles images on page
@@ -50,13 +51,15 @@ class Wrapper extends React.Component {
     clickHandler = id => {
         if(this.state.chosenEmployees.indexOf(id) === -1 && this.state.score <12){
             this.setState({
+                lose: false,
                 score: this.state.score +1
             }, () => {
                 this.winCheck(id);
             });
         } else if(this.state.chosenEmployees.indexOf(id) !== -1){
             this.setState({
-                text: "You guessed incorrectly!"
+                text: "You guessed incorrectly!",
+                lose: true
             }, () => {
                 this.reset();
             })
@@ -96,6 +99,7 @@ class Wrapper extends React.Component {
                             name={employee.name}
                             image={employee.image}
                             clickHandler={this.clickHandler}
+                            lose ={this.state.lose}
                             />
                         )
                     }
