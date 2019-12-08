@@ -2,6 +2,7 @@ import React from 'react';
 import './Wrapper.css';
 import employeesList from '../../employees.json';
 import EmployeeCard from '../EmployeeCard';
+import banner from '../../Images/banner.webp';
 
 class Wrapper extends React.Component {
     state = {
@@ -86,7 +87,7 @@ class Wrapper extends React.Component {
                 </div>
 
                 <div className="imgDiv">
-                    <img alt="banner" src="https://www.nbcstore.com/media/catalog/category/office-cat-banner.jpg"></img>
+                    <img alt="banner" src={banner}></img>
                     <h5>Click on an image to earn points,<br></br> but don't click on any more than once!</h5>
                 </div>
 
